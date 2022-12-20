@@ -1,0 +1,29 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block content %}
+    <h1>Ваши задачи</h1>
+    {% if tasks %}
+        {% for el in tasks %}
+            <div class="alert alert-warning mt-2">
+                <h3>{{ el.title }}</h3>
+                <p>Приоритет: *В разработке*</p>
+                <p>Дедлайн: {{ el.date }}</p>
+                <p>Описание задачи: {{ el.task }}</p>
+                        {% if form.is_complete == False %}
+                    <p>Выполнено</p>
+                    {% else %}
+                    <button>Прикрепить файл</button>
+                    <button>Отправить на модерацию</button>
+                    {% endif %}
+                    <button>Комментарии</button>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>Задач нет (^_^)</p>
+        <p>(P.S. скорее всего это какая-то ошибка, сообщите об этом менеджеру)</p>
+    {% endif %}
+{% endblock %}
