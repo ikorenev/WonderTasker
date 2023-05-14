@@ -13,7 +13,7 @@ class TaskForm(ModelForm):
             }),
             "date": DateInput(attrs={
                 'class': 'form-control',
-                'placeholder': 'Назначте дедлайн в формате (Пример: 2022-12-11 15:45:26)',
+                'placeholder': 'До:2022-12-11 15:45:26'
             }),
             "task": Textarea(attrs={
                 'class': 'form-control',
